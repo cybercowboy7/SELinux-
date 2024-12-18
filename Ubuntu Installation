@@ -1,0 +1,12 @@
+Install SELinux and essential dependencies
+  sudo apt-get install policycoreutils selinux-utils selinux-basics -y
+
+Activate the service
+  sudo selinux-activate
+
+If in Docker environment
+  reboot the exit the system after install
+
+Commit the changes so that they persist
+  sudo docker commit <commit_ID> <new_image_name>
+
