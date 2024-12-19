@@ -1,2 +1,37 @@
+SELinux Modes
+    - To set the mode (after changing the mode, always reboot
+      sudo selinux-config-<mode>
+      sudo reboot
+
+    - Check the status to make sure it has been enabled
+    - Can also check the current modes by accessing the /etc/sysconfig/selinux file
+      setstatus    #OR
+      getenforce 
+
+    - Disable Mode: Service is not active on the system
+
+    - Enable Mode: Service is running on the system
+
+    - Permissive Mode: Use when you only need to monitor the interactions
+      Doesn't block all requests and keeps a log file to store an event if
+      there is a rule violation
+
+    - Enforcing Mode: Filtering and monitoring interactions
+
+    - To view SELinux logs
+      grep selinux /var/logs/audit/audint.log
+
+
+How to disable SELinux
+
+    - Temporarily disable (need to be root)
+      sudo -i
+      echo 0 > /selinux/enforce      #OR
+
+      setenforce 0
+
+    - Permanently Disable SELinux
+      sudo nano /etc/selinux/config
+        - find the SELINUX=enforcing line and change to disabled
 
 https://www.makeuseof.com/how-to-install-configure-selinux-on-ubuntu/
